@@ -1,0 +1,22 @@
+<!-- resultado-clima.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Resultado do Clima</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Resultado do Clima</h2>
+
+    <div th:if="${cidade}">
+        <p><strong>Cidade:</strong> <span th:text="${cidade.nome}"></span></p>
+        <p><strong>Temperatura:</strong> <span th:text="${cidade.temperatura} + '°C'"></span></p>
+        <p><strong>Condição:</strong> <span th:text="${cidade.condicao}"></span></p>
+        <a href="/cidades/consulta-clima" class="btn btn-secondary">Nova Consulta</a>
+    </div>
+
+    <div th:if="${erro}" class="alert alert-danger" th:text="${erro}"></div>
+</div>
+</body>
+</html>
