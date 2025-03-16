@@ -51,4 +51,11 @@ public class AuthController {
 
         return "cadastro-cidade";
     }
+
+    @GetMapping("/cadastro")
+    @PreAuthorize("hasRole('ADMIN')")
+    public String mostrarFormularioCadastro(Model model) {
+        model.addAttribute("cidade", new Cidade());
+        return "cadastro-cidade";
+    }
 }

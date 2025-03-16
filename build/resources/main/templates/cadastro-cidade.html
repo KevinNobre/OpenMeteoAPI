@@ -13,7 +13,7 @@
     <div th:if="${mensagem}" class="alert alert-success" th:text="${mensagem}"></div>
     <div th:if="${erro}" class="alert alert-danger" th:text="${erro}"></div>
 
-    <form th:action="@{/cidades/cadastro}" method="post" th:object="${cidade}">
+    <form th:action="@{/cadastro}" method="post" th:object="${cidade}">
         <div class="mb-3">
             <label for="nome" class="form-label">Nome da Cidade</label>
             <input type="text" id="nome" name="nome" class="form-control" th:field="*{nome}" required>

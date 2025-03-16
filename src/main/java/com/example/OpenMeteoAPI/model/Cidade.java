@@ -17,13 +17,14 @@ public class Cidade {
     private Double temperaturaAtual;
     private Double velocidadeVento;
 
-    public Cidade() {}
-
     public Cidade(String name, String latitude, String longitude) {
         this.nome = nome;
         this.latitude = latitude;
         this.longitude = longitude;
 
+
+    }
+    public Cidade() {
 
     }
 

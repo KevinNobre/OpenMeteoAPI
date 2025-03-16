@@ -23,7 +23,6 @@ public class OpenMeteoService {
     public static class OpenMeteoDTO {
         private double latitude;
         private double longitude;
-        private String timezone;
         private CurrentWeather current_weather;
 
         public double getLatitude() {
@@ -40,14 +39,6 @@ public class OpenMeteoService {
 
         public void setLongitude(double longitude) {
             this.longitude = longitude;
-        }
-
-        public String getTimezone() {
-            return timezone;
-        }
-
-        public void setTimezone(String timezone) {
-            this.timezone = timezone;
         }
 
         public CurrentWeather getCurrent_weather() {
@@ -95,7 +86,7 @@ public class OpenMeteoService {
             throw new RuntimeException("Erro ao buscar dados na API");
         }
 
-        // Persistindo dados climáticos na entidade Clima
+
         Clima clima = new Clima(
                 cidade,
                 dto.getCurrent_weather().getTemperature(),
@@ -105,7 +96,6 @@ public class OpenMeteoService {
 
         climaRepository.save(clima);
 
-        // Atualizando a entidade Cidade com os dados climáticos mais recentes
         cidade.setTemperaturaAtual(dto.getCurrent_weather().getTemperature());
         cidade.setVelocidadeVento(dto.getCurrent_weather().getWindspeed());
 

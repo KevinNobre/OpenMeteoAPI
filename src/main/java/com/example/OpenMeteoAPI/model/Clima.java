@@ -13,7 +13,6 @@ public class Clima {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cidade_id")
     private Cidade cidade;
-
     private Double temperaturaAtual;
     private Double velocidadeVento;
     private LocalDateTime dataHoraConsulta;
